@@ -1,0 +1,17 @@
+{
+  "name": "gis_prog",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Luka <luka.glusica89@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
