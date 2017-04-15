@@ -1,5 +1,5 @@
 angular.module("onlineGIS")
-    .factory("map", [function() {
+    .service("map", [function() {
         //OL VIEW
         var view = new ol.View({
             center: ol.proj.transform([20.476274, 44.805654], "EPSG:4326", "EPSG:3857"),
@@ -7,14 +7,14 @@ angular.module("onlineGIS")
         });
 
         //OL LAYERS
-          // OpenStreetMaps layer
+        // OpenStreetMaps layer
         var osm = new ol.layer.Tile({
             zIndex: 0,
             preload: Infinity,
             source: new ol.source.OSM()
         });
 
-          // Geometry layer - Polygons, Lines, Points
+        // Geometry layer - Polygons, Lines, Points
         var geometry = new ol.layer.Vector({
             zIndex: 1,
             source: new ol.source.Vector()
@@ -28,8 +28,8 @@ angular.module("onlineGIS")
                 collapsible: false
             })
         }).extend([
-          new ol.control.ScaleLine(),
-          new ol.control.ZoomSlider()
+            new ol.control.ScaleLine(),
+            new ol.control.ZoomSlider()
         ])
 
         //OL MAP OBJECT
@@ -40,8 +40,6 @@ angular.module("onlineGIS")
             view: view
         })
 
-        // PUBLIC API
-        return {
-          map: map
-        }
+        //PUBLIC API
+        this.map = map;
     }])

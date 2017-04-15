@@ -1,4 +1,4 @@
 angular.module("onlineGIS")
-  .controller("appController", ["map", function(map) {
+  .controller("appController", ["map", "$scope", function(map, $scope) {
     var app = this;
-  }])
+  }]);

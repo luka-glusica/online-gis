@@ -27,7 +27,7 @@ html, body {
 
 .ol-control button:hover {
   color: rgb(255,255,255) !important;;
-  background: rgb(0,0,0) !important;;
+  background: rgba(0,0,0, 0.7) !important;;
 }
 
 .ol-zoom {
