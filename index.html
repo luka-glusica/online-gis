@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en" ng-app="onlineGIS">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OnlineGIS</title>
+    <meta name="description" content="Simple online GIS" />
+    <meta name="author" content="Luka Glusica" />
+    <!--BOWER PACKAGES - STYLE -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/ol4/ol.css" />
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="app/reset.css" />
+    <link rel="stylesheet" href="app/app.css" />
+
+    <!-- BOWER PACKAGES - LIBRARIES -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ol4/ol-debug.js"></script>
+</head>
+
+<body ng-controller="appController as app">
+    <!-- MAP CONTAINER -->
+    <div id="map" class="map"></div>
+
+    <!-- MODULES -->
+    <script src="app/app.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="app/appController.js"></script>
+
+    <!-- SERVICES -->
+    <script src="app/services/map.js"></script>
+
+    <!-- DIRECTIVES -->
+</body>
+
+</html>

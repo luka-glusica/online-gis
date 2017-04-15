@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Ubuntu, sans-serif;
+}
+
+/*MAP STYLE*/
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.ol-control {
+  background: rgba(0,0,0,0.4) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.ol-control button {
+  border-radius: 0 !important;
+  height: 40px !important;
+  width: 40px !important;
+  background: rgb(255,255,255) !important;;
+  color: rgb(0,0,0) !important;;
+}
+
+.ol-control button:hover {
+  color: rgb(255,255,255) !important;;
+  background: rgb(0,0,0) !important;;
+}
+
+.ol-zoom {
+  top: 1em !important;
+  right: 0px !important;
+  left: auto !important;
+}
+
+.ol-zoomslider {
+  top: 7em !important;
+  right: 0px !important;
+  left: auto !important;
+}
+
+.ol-zoomslider button {
+  height: 20px !important;
+}
+
+.ol-scale-line {
+  bottom: 20px !important;
+  right: 0 !important;
+  left: auto !important;
+  background: rgb(255,255,255) !important;
+}
+
+.ol-scale-line-inner {
+  color: rgb(0,0,0) !important;
+  border-color: rgb(0,0,0) !important;
+}
