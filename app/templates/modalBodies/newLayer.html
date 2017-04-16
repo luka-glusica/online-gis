@@ -1,0 +1,57 @@
+<div class="container-fluid" ng-controller="newLayerController">
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="text-info padding-fix">Layer name: </label>
+        </div>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="layerModel.name" />
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="text-info padding-fix">Geometry type: </label>
+        </div>
+        <div class="col-sm-9">
+            <select class="form-control" ng-options="type as type.label for type in geometryTypes" ng-model="layerModel.geom">
+              <option value="" ng-if="!layerModel.geom">-- Select geometry type --</option>
+            </select>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-3 col-xs-12">
+            <label class="text-info padding-fix">Attribute name: </label>
+        </div>
+        <div class="col-sm-6 col-xs-10">
+            <input type="text" class="form-control" ng-model="newAttribute" />
+        </div>
+        <div class="col-sm-3 col-xs-2">
+            <span class="glyphicon glyphicon-plus-sign text-info span-padding-fix" style="cursor:pointer" ng-click="addAttribute()"></span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-left"><b class="text-info">Name</b></th>
+                        <th class="text-center"><b class="text-info">Type</b></th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="attr in layerModel.attributes track by $index">
+                    <td class="text-left">{{attr}}</td>
+                    <td class="text-center">Text</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-default pull-right" ng-click="dismissNewLayer()">Cancel</button>
+        <button class="btn btn-default pull-right" ng-click="saveNewLayer()">Save</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.layer-container {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  min-width: 200px;
+  max-width: 250px;
+  width: 80%;
+}
+
+.layer-list-container {
+  min-height: 150px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.btn-new-layer {
+  margin: 5px 5px 5px 0;
+}
+
+.padding-fix {
+  padding-top: 8px !important;
+}
+
+.span-padding-fix {
+  padding-top: 12px !important;
+}
