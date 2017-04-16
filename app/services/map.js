@@ -37,7 +37,9 @@ angular.module("onlineGIS")
             target: "map",
             layers: layers,
             controls: controls,
-            view: view
+            view: view,
+            loadTilesWhileAnimating: true,
+            loadTilesWhileInteracting: true,
         })
 
         //PUBLIC API

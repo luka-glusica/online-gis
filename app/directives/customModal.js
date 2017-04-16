@@ -5,7 +5,8 @@ angular.module("onlineGIS")
             scope: {
                 customModalTitle: "@",
                 customModalBodyTemplate: "@",
-                customodalSize: "@"
+                customModalSize: "@",
+                customModalData: "="
             },
             link: function(scope, element) {
 
@@ -14,11 +15,12 @@ angular.module("onlineGIS")
                     $uibModal.open({
                         templateUrl: "app/templates/modal.html",
                         controller: "modalInstanceCtrl",
-                        size: scope.customodalSize,
+                        size: scope.customModalSize,
                         resolve: {
                             data: {
                                 title: scope.customModalTitle,
-                                bodyTemplate: scope.customModalBodyTemplate
+                                bodyTemplate: scope.customModalBodyTemplate,
+                                other: scope.customModalData
                             }
                         }
                     });

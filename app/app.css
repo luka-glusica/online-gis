@@ -10,6 +10,7 @@ html, body {
   width: 100%;
 }
 
+/*OL CONTROLS OVERRIDE*/
 .ol-control {
   background: rgba(0,0,0,0.4) !important;
   padding: 0 !important;
@@ -22,12 +23,12 @@ html, body {
   height: 40px !important;
   width: 40px !important;
   background: rgb(255,255,255) !important;;
-  color: rgb(0,0,0) !important;;
+  color: #333333 !important;;
 }
 
 .ol-control button:hover {
   color: rgb(255,255,255) !important;;
-  background: rgba(0,0,0, 0.7) !important;;
+  background: #333333 !important;;
 }
 
 .ol-zoom {
@@ -54,6 +55,6 @@ html, body {
 }
 
 .ol-scale-line-inner {
-  color: rgb(0,0,0) !important;
-  border-color: rgb(0,0,0) !important;
+  color: #333333 !important;
+  border-color: #333333 !important;
 }

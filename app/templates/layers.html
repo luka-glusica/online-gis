@@ -1,0 +1,19 @@
+<div ng-controller="layerController" class="layer-container">
+  <div class="container-fluid">
+    <div class="row bg-primary">
+      <h4 class="text-primary text-center">Layers</h4>
+    </div>
+    <div class="row bg-info layer-list-container">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="layer in layerList track by $index">
+          <span class="glyphicon" ng-class="{'glyphicon-unchecked': layer.geom.label == 'Polygon', 'glyphicon-minus': layer.geom.label == 'Line', 'glyphicon-record': layer.geom.label == 'Point' }"></span>
+          <span class="text-info">&nbsp;{{layer.name}}</span>
+          <span class="text-info pull-right" style="cursor:pointer" custom-modal custom-modal-title="Delete layer" custom-modal-body-template="app/templates/modalBodies/deleteLayer.html" custom-modal-data="layer">&times;</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row bg-primary">
+      <button class="btn btn-info btn-new-layer pull-right" custom-modal custom-modal-title="Create new layer" custom-modal-body-template="app/templates/modalBodies/newLayer.html">New layer</button>
+    </div>
+  </div>
+</div>

@@ -8,14 +8,19 @@
     <title>OnlineGIS</title>
     <meta name="description" content="Simple online GIS" />
     <meta name="author" content="Luka Glusica" />
+
+    <!-- RESET STYLE -->
+    <link rel="stylesheet" href="app/reset.css" />
+
     <!--BOWER PACKAGES - STYLE -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/ol4/ol.css" />
 
     <!-- STYLE -->
-    <link rel="stylesheet" href="app/reset.css" />
+    <link rel="stylesheet" href="app/style/bootstrap-override.css" />
     <link rel="stylesheet" href="app/app.css" />
     <link rel="stylesheet" href="app/style/modal.css" />
+    <link rel="stylesheet" href="app/style/layers.css" />
 
     <!-- BOWER PACKAGES - LIBRARIES -->
     <script src="bower_components/angular/angular.js"></script>
@@ -24,10 +29,12 @@
     <script src="bower_components/ol4/ol-debug.js"></script>
 </head>
 
-<body ng-controller="appController as app">
+<body ng-controller="appController">
     <!-- MAP CONTAINER -->
     <div id="map" class="map"></div>
 
+    <!-- LAYER CONTAINER -->
+    <div ng-contoller="layerController" ng-include="'app/templates/layers.html'"></div>
 
 
     <!-- MODULES -->
@@ -36,6 +43,9 @@
     <!-- CONTROLLERS -->
     <script src="app/appController.js"></script>
     <script src="app/controllers/modalInstanceCtrl.js"></script>
+    <script src="app/controllers/layerController.js"></script>
+    <script src="app/controllers/newLayerController.js"></script>
+    <script src="app/controllers/deleteLayerController.js"></script>
 
     <!-- SERVICES -->
     <script src="app/services/map.js"></script>

@@ -1,0 +1,45 @@
+.text-primary {
+  color: white !important;
+}
+
+.text-info {
+  color: #333333 !important;
+}
+
+.bg-primary {
+  background: #333333 !important;
+}
+
+.bg-info {
+  background: white !important;
+}
+
+.btn-default {
+  background: #333333 !important;
+  color: white !important;
+  border-radius: 0 !important;
+}
+
+.btn-info {
+  background: white !important;
+  color: #333333 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.btn-info:focus, .btn-info:active, .btn-default:focus, .btn-default:active {
+  outline: none !important;
+}
+
+.list-group {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.list-group-item {
+  border-radius: 0 !important;
+}
+
+select.form-control, input.form-control {
+  border-radius: 0 !important;
+}

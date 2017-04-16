@@ -1,7 +1,11 @@
 angular.module("onlineGIS")
-  .controller("modalInstanceCtrl",["$scope","$uibModalInstance", "data", function($scope, $uibModalInstance, data) {
+  .controller("modalInstanceCtrl",["$rootScope", "$scope","$uibModalInstance", "data", function($rootScope, $scope, $uibModalInstance, data) {
 
     $scope.data = data;
+
+    $scope.dismiss = function() {
+      $uibModalInstance.dismiss();
+    }
 
     $scope.close = function () {
       $uibModalInstance.close();

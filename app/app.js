@@ -1,7 +1,7 @@
 angular.module("onlineGIS", ["ngAnimate", "ui.bootstrap"])
 
-  .run([function() {
-
+  .run(["$rootScope", function($rootScope) {
+    $rootScope.layers = [];
   }])
 
   .config([function() {
@@ -12,4 +12,3 @@ angular.module("onlineGIS", ["ngAnimate", "ui.bootstrap"])
     domain: "http://localhost/",
     restAPI: ""
   })
-  
