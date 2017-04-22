@@ -1,0 +1,33 @@
+.tools-container {
+    position: absolute;
+    top: 25em;
+    left: 0;
+    width: 230px;
+    border-right: 1px solid #333333 !important;
+    border-bottom: 1px solid #333333 !important;
+}
+
+.btn-tool {
+    width: 40px;
+    height: 40px;
+    border-radius: 100% !important;
+    background: #333333 !important;
+    color: #fff !important;
+    border: none !important;
+    margin: 5px 5px !important;
+}
+
+.btn-tool:hover {
+    background: #fff !important;
+    color: #333333 !important;
+    border: 1px solid #333333 !important;
+}
+
+.btn-tool:active, .btn-tool:focus {
+    outline: none !important
+}
+
+.tools-group {
+    display: flex;
+    justify-content: space-around;
+}
