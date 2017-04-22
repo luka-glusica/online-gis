@@ -5,10 +5,12 @@
     </div>
     <div class="row bg-info layer-list-container">
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="layer in layerList track by $index">
+        <li class="list-group-item" ng-class="{'layer-selected': layer.name == activeLayer.name}" ng-repeat="layer in layerList track by $index" ng-click="setLayerActive(layer)">
           <span class="glyphicon" ng-class="{'glyphicon-unchecked': layer.geom.label == 'Polygon', 'glyphicon-minus': layer.geom.label == 'Line', 'glyphicon-record': layer.geom.label == 'Point' }"></span>
           <span class="text-info">&nbsp;{{layer.name}}</span>
-          <span class="text-info pull-right" style="cursor:pointer" custom-modal custom-modal-title="Delete layer" custom-modal-body-template="app/templates/modalBodies/deleteLayer.html" custom-modal-data="layer">&times;</span>
+          <span class="text-info pull-right" style="cursor:pointer" custom-modal custom-modal-title="Delete layer" custom-modal-body-template="app/templates/modalBodies/deleteLayer.html" custom-modal-data="layer">
+            <span class="glyphicon glyphicon-remove" style="font-size: 8pt"></span>
+          </span>
         </li>
       </ul>
     </div>

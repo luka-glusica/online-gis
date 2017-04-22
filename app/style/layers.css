@@ -2,13 +2,11 @@
   position: absolute;
   top: 1em;
   left: 0;
-  min-width: 200px;
-  max-width: 250px;
-  width: 80%;
+  width: 230px;
 }
 
 .layer-list-container {
-  min-height: 150px;
+  min-height: 100px;
   max-height: 200px;
   overflow-y: auto;
 }
@@ -23,4 +21,12 @@
 
 .span-padding-fix {
   padding-top: 12px !important;
+}
+
+.layer-selected {
+  background-color: rgb(200,200,200);
+}
+
+.layer-list-container li {
+  cursor:pointer;
 }

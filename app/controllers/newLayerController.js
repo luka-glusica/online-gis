@@ -20,7 +20,10 @@ angular.module("onlineGIS")
     $scope.newAttribute = "";
 
     $scope.addAttribute = function() {
-        $scope.layerModel.attributes.push($scope.newAttribute)
+        $scope.layerModel.attributes.push({
+           name: $scope.newAttribute,
+           value: ""
+        });
     }
 
     $scope.dismissNewLayer = function() {

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="app/app.css" />
     <link rel="stylesheet" href="app/style/modal.css" />
     <link rel="stylesheet" href="app/style/layers.css" />
+    <link rel="stylesheet" href="app/style/tools.css" />
 
     <!-- BOWER PACKAGES - LIBRARIES -->
     <script src="bower_components/angular/angular.js"></script>
@@ -29,14 +30,23 @@
     <script src="bower_components/ol4/ol-debug.js"></script>
 </head>
 
-<body ng-controller="appController">
+<body ng-controller="appController" cursor-handler>
     <!-- MAP CONTAINER -->
     <div id="map" class="map"></div>
 
     <!-- LAYER CONTAINER -->
-    <div ng-contoller="layerController" ng-include="'app/templates/layers.html'"></div>
+    <div ng-include="'app/templates/layers.html'"></div>
 
+    <!-- TOOLS CONTAINER -->
+    <div ng-include="'app/templates/tools.html'"></div>
 
+    <!-- ATTRIBUTE MODAL TRIGGER -->
+    <div custom-modal custom-modal-title="Fill attribute fields" custom-modal-body-template="app/templates/modalBodies/attributesTable.html" custom-modal-listener="geometry:drawend"></div>
+
+    <!-- DELETE FEATURE MODAL TRIGGER -->
+    <div custom-modal custom-modal-title="Remove feature" custom-modal-body-template="app/templates/modalBodies/deleteFeature.html" custom-modal-listener="geometry:delete"></div>
+
+    <!-- SCRIPTS -->
     <!-- MODULES -->
     <script src="app/app.js"></script>
 
@@ -46,12 +56,18 @@
     <script src="app/controllers/layerController.js"></script>
     <script src="app/controllers/newLayerController.js"></script>
     <script src="app/controllers/deleteLayerController.js"></script>
+    <script src="app/controllers/toolsController.js"></script>
+    <script src="app/controllers/attributeController.js"></script>
+    <script src="app/controllers/deleteFeatureController.js"></script>
 
     <!-- SERVICES -->
+    <script src="app/services/api.js"></script>
     <script src="app/services/map.js"></script>
+    <script src="app/services/geometry.js"></script>
 
     <!-- DIRECTIVES -->
     <script src="app/directives/customModal.js"></script>
+    <script src="app/directives/cursorHandler.js"></script>
 </body>
 
 </html>
