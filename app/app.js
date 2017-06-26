@@ -1,4 +1,4 @@
-angular.module("onlineGIS", ["ngAnimate", "ui.bootstrap"])
+angular.module("onlineGIS", ["ngAnimate", "ui.bootstrap", "pageslide-directive"])
 
   .run(["$rootScope", function($rootScope) {
     $rootScope.layers = [];
