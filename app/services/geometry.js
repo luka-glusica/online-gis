@@ -25,18 +25,28 @@ angular.module("onlineGIS")
          stroke: new ol.style.Stroke({
             color: "rgb(51, 51, 51)",
             width: 4
-         })
-      });
-
-      var modifyStyle = new ol.style.Style({
+         }),
          image: new ol.style.Circle({
-            radius: 7,
+            radius: 6,
             fill: new ol.style.Fill({
                color: "rgb(51, 51, 51)"
             }),
             stroke: new ol.style.Stroke({
                width: 2,
-               color: "rgb(255, 255, 255)"
+               color: "rgb(255, 0, 0)"
+            })
+         })
+      });
+
+      var modifyStyle = new ol.style.Style({
+         image: new ol.style.Circle({
+            radius: 6,
+            fill: new ol.style.Fill({
+               color: "rgb(51, 51, 51)"
+            }),
+            stroke: new ol.style.Stroke({
+               width: 2,
+               color: "rgb(255, 0, 0)"
             })
          })
       });
@@ -118,29 +128,62 @@ angular.module("onlineGIS")
             }
          },
          modify: {
-            init: function() {},
-            setActive: function(active) {},
+            init: function() {
+               var select = new ol.interaction.Select({
+                  toggleCondition: ol.events.condition.never,
+                  features: geometry.getSource().getFeatures(),
+                  style: selectStyle
+               });
+               this.interaction.Select = select;
+               this.interaction.Edit = new ol.interaction.Modify({
+                  features: select.getFeatures(),
+                  style: modifyStyle
+               });
+
+               this.setEvents()
+
+               olMap.addInteraction(this.interaction.Select);
+               olMap.addInteraction(this.interaction.Edit);
+               this.setActive(false);
+            },
+            interaction: {
+               Select: null,
+               Edit: null
+            },
+            setActive: function(active) {
+               this.interaction.Edit.setActive(active);
+               this.interaction.Select.setActive(active);
+            },
+            setEvents: function() {
+               this.interaction.Select.on("select", function(event) {
+                  var ev = {
+                     selected: event.selected,
+                     deselected: event.deselected
+                  };
+                  handleSelectType(ev)
+               })
+            }
          },
          delete: {
             init: function() {
-               this.event = olMap.on('singleclick', this.deleteHandler);
-               this.unSetEvent();
+               this.event.click = olMap.on('singleclick', this.deleteHandler);
+               this.unSetEvents();
             },
             setActive: function(active) {
-               if(active) {
-                  this.event = olMap.on('singleclick', this.deleteHandler);
+               if (active) {
+                  this.event.click = olMap.on('singleclick', this.deleteHandler);
                } else {
-                  this.unSetEvent();
+                  this.unSetEvents();
                }
             },
-            event: null,
-            unSetEvent: function() {
-               ol.Observable.unByKey(this.event)
+            event: {},
+            unSetEvents: function() {
+               ol.Observable.unByKey(this.event.click)
             },
             deleteHandler: function(ev) {
                var featureFound = false;
                olMap.forEachFeatureAtPixel(ev.pixel, function(feature) {
-                  if(!featureFound && feature.getProperties().layer == $rootScope.activeLayer.name) {
+                  if (!featureFound && feature.getProperties().layer == $rootScope.activeLayer.name) {
                      $rootScope.$emit("geometry:delete", feature);
                      featureFound = true;
                   }
@@ -175,8 +218,40 @@ angular.module("onlineGIS")
       }
 
       function saveFeature(model, feature) {
-         feature.setProperties({attributes: model});
+         feature.setProperties({
+            attributes: model
+         });
          //TODO: POST GEOMETRY VIA REST API
+      }
+
+      function getSelectType(selectEvent) {
+         if(selectEvent.deselected.length == 0 && selectEvent.selected.length != 0) {
+            return "select"
+         } else if(selectEvent.deselected.length != 0 && selectEvent.selected.length != 0) {
+            return "switch"
+         } else if(selectEvent.deselected.length != 0 && selectEvent.selected.length == 0) {
+            return "deselect"
+         } else {
+            return null;
+         }
+      }
+
+      function handleSelectType(selectEvent) {
+         var type = getSelectType(selectEvent);
+         switch(type) {
+            case "select":
+               $rootScope.$emit("geometry:select", true)
+               break;
+            case "switch":
+               $rootScope.$emit("geometry:select", true)
+               break;
+            case "deselect":
+               $rootScope.$emit("geometry:select", false)
+               break;
+            default:
+               console.log("ERROR!!!!");
+               break;
+         }
       }
 
 
