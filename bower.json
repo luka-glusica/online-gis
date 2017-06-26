@@ -19,6 +19,10 @@
     "angular-animate": "^1.6.4",
     "bootstrap": "^3.3.7",
     "angular-bootstrap": "^2.5.0",
-    "ol4": "^4.0.1"
+    "ol4": "^4.0.1",
+    "angular-pageslide-directive": "^2.1.4"
+  },
+  "resolutions": {
+    "angular": "^1.6.4"
   }
 }

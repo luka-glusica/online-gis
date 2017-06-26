@@ -22,12 +22,15 @@
     <link rel="stylesheet" href="app/style/modal.css" />
     <link rel="stylesheet" href="app/style/layers.css" />
     <link rel="stylesheet" href="app/style/tools.css" />
+    <link rel="stylesheet" href="app/style/pageslide.css" />
+
 
     <!-- BOWER PACKAGES - LIBRARIES -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ol4/ol-debug.js"></script>
+    <script src="bower_components/angular-pageslide-directive/dist/angular-pageslide-directive.js"></script>
 </head>
 
 <body ng-controller="appController" cursor-handler>
@@ -39,6 +42,32 @@
 
     <!-- TOOLS CONTAINER -->
     <div ng-include="'app/templates/tools.html'"></div>
+
+    <!-- PAGESLIDE DIRECTIVE -->
+    <div ng-controller="pageslideController">
+        <pageslide ps-open="sliderOpen" ps-side="right" ps-container="map" ps-class="pageslide-custom" ps-click-outside="false">
+           <div></div>
+           <div ng-include="'app/templates/pageslideData.html'"></div>
+        </pageslide>
+    </div>
+    <!-- // Configuration
+   ps-side (optional) = Where the panel should appear (right,left,top,bottom), if empty defaults to "right"
+   ps-container (optional) = custom CSS ID selector to which the slider div appends (e.g: <div id='myDiv'/> -> ps-container="myDiv")
+   ps-body-class (optional) = if true adds a class on the container body reflecting the state of the pageslide
+
+   // Interaction
+   ps-open (optional) = Boolean true/false used to open and close the panel (optional)
+   ps-auto-close (optional) = true if you want the panel to close on location change
+   ps-key-listener (optional) = close the sidebar with the ESC key (defaults to false)
+   ps-click-outside (optional) = close the sidebar by clicking outside (defaults to true)
+   ps-push (optional) = push the main body to show the panel (defaults to false)
+
+   // Style
+   ps-class (optional) = The class for the pageslide (default: "ng-pageslide")
+   ps-speed (optional) = The speed of the transition (optional)
+   ps-size (optional) = desired height/width of panel (defaults to 300px)
+   ps-zindex (optional) = desired z-index (defaults to 1000) -->
+
 
     <!-- ATTRIBUTE MODAL TRIGGER -->
     <div custom-modal custom-modal-title="Fill attribute fields" custom-modal-body-template="app/templates/modalBodies/attributesTable.html" custom-modal-listener="geometry:drawend"></div>
@@ -59,6 +88,7 @@
     <script src="app/controllers/toolsController.js"></script>
     <script src="app/controllers/attributeController.js"></script>
     <script src="app/controllers/deleteFeatureController.js"></script>
+    <script src="app/controllers/pageslideController.js"></script>
 
     <!-- SERVICES -->
     <script src="app/services/api.js"></script>
