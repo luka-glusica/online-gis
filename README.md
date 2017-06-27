@@ -5,22 +5,24 @@ Users have a possibility to create layers of certain geometry type and to add at
 </p>
 <h2>Usage</h2>
 <p>Clone the repository:</p>
-```
-git clone https://github.com/Luka-G/online-gis.git
 
 ```
+git clone https://github.com/Luka-G/online-gis.git
+```
 <p>Install packages and dev tools:</p>
+
 ```
 bower install
 ```
+
 ```
 npm install
-
 ```
+
 <p>Start development server</p>
+
 ```
 gulp
-
 ```
 <h2>Live demo</h2>
 <p>See the application in action:</p>
