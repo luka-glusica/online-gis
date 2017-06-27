@@ -28,7 +28,9 @@ angular.module("onlineGIS")
 
       //SET TOOL ACTIVE
       $scope.toggleTool = function(tool) {
-         $scope.toolStatus[tool].setActivity(true);
+         if(tool) {
+            $scope.toolStatus[tool].setActivity(true);
+         }
          setInactiveExcept(tool);
       }
 
